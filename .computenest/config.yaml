@@ -16,7 +16,7 @@ Service:
           
           Default.MYSQL_HOST:
             Type: String
-            Default: mysql
+            Default: test
             Description: mysql地址
             
             
@@ -26,8 +26,8 @@ Service:
             AllowedValues:
               
               - mysql
-              - test
               - value
+              - test
           
         Metadata:
            ParameterGroups:

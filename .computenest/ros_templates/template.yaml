@@ -296,7 +296,6 @@ Resources:
 
             systemctl enable chat-nio
 
-            sed -i 's/MYSQL_HOST=[^\n]*/MYSQL_HOST=${MYSQL_HOST}/' /root/application/docker_compose/.env
             systemctl start chat-nio
           - RegionId:
               Ref: ALIYUN::Region

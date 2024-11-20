@@ -310,8 +310,7 @@ Resources:
       Type: RunShellScript
       Sync: true
       Timeout: 3600
-      CommandContent:
-        - |
+      CommandContent: |
           cat > /home/ecs-assist-user/service_repo/.env << "EOF"
           {{ serviceConfigParam }}
           EOF

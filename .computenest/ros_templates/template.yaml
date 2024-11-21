@@ -296,27 +296,10 @@ Resources:
 
             systemctl enable chat-nio
 
+            
             systemctl start chat-nio
           - RegionId:
               Ref: ALIYUN::Region
-  
-  WriteConfigCommand:
-    Type: ALIYUN::ECS::RunCommand
-    Properties:
-      InstanceIds:
-        Fn::GetAtt:
-        - InstanceGroup
-        - InstanceIds
-      Type: RunShellScript
-      Sync: true
-      Timeout: 3600
-      CommandContent: |
-          cat > /home/ecs-assist-user/service_repo/.env << "EOF"
-          {{ serviceConfigParam }}
-          EOF
-          systemctl stop docker-compose-app
-          systemctl start docker-compose-app
-  
 Outputs: 
   chatnio_address:
     Description:
@@ -354,9 +337,4 @@ Metadata:
           - VSwitchCidrBlock
         Label:
           default: 可用区配置
-      - Parameters:
-          - MYSQL_HOST
-        Label:
-          en: Software Configuration
-          zh-cn: 软件配置
       

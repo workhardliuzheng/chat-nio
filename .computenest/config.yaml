@@ -9,46 +9,8 @@ Service:
           - Stop
           - Restart
     SupportBackup: true
-    
-    ParameterConfigs:
-      - TemplateName: '单机版'
-        Parameters:
-          
-          Default.MYSQL_HOST:
-            Type: String
-            Default: mysql
-            Description: mysql地址
-            
-            
-            
-            
-            
-            AllowedValues:
-              
-              - mysql
-              - test
-              - value
-          
-        Metadata:
-           ParameterGroups:
-             - Parameters:
-                 - MYSQL_HOST
-               DefaultValue: |-
-                 
-                 MYSQL_HOST=mysql
-                 MYSQL_USER=chatnio
-               Formatter: env
-               Name: Default
-    
   DeployMetadata:
     SupplierDeployMetadata:
-      SupplierTemplateConfigs:
-        - Name: '单机版'
-          Url: 'ros_templates/template.yaml'
-          AllowedRegions:
-              - cn-hangzhou
-              - cn-shanghai
-              - cn-beijing
       FileArtifactRelation:
         '{{ computenest::file::workhardliuzheng_chat-nio-docker-compose }}':
           ArtifactId: ${Artifact.Artifact_1.ArtifactId}
